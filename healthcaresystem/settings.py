@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8q#n42&ao3s$x##ieky6g7vc)@czxmh1+l+drgpjf9bh&pmwd5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -118,13 +118,22 @@ WSGI_APPLICATION = 'healthcaresystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql"),
+#         "NAME": os.environ.get("SQL_DATABASE", "health"),
+#         "USER": os.environ.get("SQL_USER", "postgres"),
+#         "PASSWORD": os.environ.get("SQL_PASSWORD", 12345),
+#         "HOST": os.environ.get("SQL_HOST", "localhost"),
+#         "PORT": os.environ.get("SQL_PORT", "5432")
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'health',
-        'HOST': 'localhost',
-        'USER': 'postgres',
-        'PASSWORD': 12345
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
